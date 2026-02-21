@@ -1,0 +1,116 @@
+import "dart:io";
+
+late String? name;
+late List<String> studentList = [];
+late int x;
+List<num>? Numb;
+
+void main() {
+  x = int.parse(stdin.readLineSync()!);
+
+  printNumb(x);
+  print(printEven(x));
+
+  if (x > 0) {
+    print("Your number is positive");
+  } else if (x < 0) {
+    print("Your number is nigative");
+  } else {
+    print("Your number is ZERO");
+  }
+
+  print("select a day (number)");
+  x = int.parse(stdin.readLineSync()!);
+
+  switch (x) {
+    case 1:
+      print("Saturday");
+      break;
+    case 2:
+      print("Sunday");
+      break;
+    case 3:
+      print("Monday");
+      break;
+    case 4:
+      print("Tuesday");
+      break;
+    case 5:
+      print("Wednesday");
+      break;
+    case 6:
+      print("Thursday");
+      break;
+    case 7:
+      print("Friday");
+      break;
+  }
+
+  if (Numb == null) {
+    print("list is empty");
+  } else {
+    print(Numb!.length);
+    print(Numb);
+  }
+  Name();
+}
+
+void printNumb(int numb) {
+  if (x > 0) {
+    print("print numbers");
+    for (var i = 1; i <= numb; i++) {
+      print(i);
+    }
+  } else if (x < 0) {
+    print("print numbers");
+    for (var i = -1; i >= numb; i--) {
+      print(i);
+    }
+  }
+}
+
+int printEven(int numb) {
+  int sum = 0;
+  if (x > 0) {
+    print("print sum even");
+    for (var i = 1; i <= numb; i++) {
+      if (i % 2 == 0) {
+        sum += i;
+      }
+    }
+  } else if (x < 0) {
+    print("print sum even");
+    for (var i = -1; i >= numb; i--) {
+      if (i % 2 == 0) {
+        sum -= i;
+      }
+    }
+    sum *= -1;
+  }
+
+  return sum;
+}
+
+void Name() {
+  print("type brake to brake the loop");
+
+  while (true) {
+    print("type student name");
+    name = stdin.readLineSync();
+    if (name == "brake" || name == "Brake") {
+      break;
+    } else {
+      studentList.add(name!);
+    }
+  }
+
+  print(studentList);
+
+  for (String i in studentList) {
+    if (i.length <= 5) {
+      print("$i is short name");
+    } else if (i.length > 5) {
+      print("$i is long name");
+    }
+  }
+}
