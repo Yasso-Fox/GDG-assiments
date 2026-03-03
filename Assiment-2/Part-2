@@ -1,0 +1,36 @@
+import 'dart:io';
+
+class Students_data {
+  late int ID;
+  late String name;
+  late List birth;
+  Students_data(this.ID, this.birth, this.name);
+
+  void data() {
+    print("name : $name\nID : $ID\nBirth day/month/year : $birth");
+  }
+}
+
+late int id;
+String? name;
+late int x;
+late List birth = [];
+
+void main() {
+  print("Wjat is the Student ID");
+  id = int.parse(stdin.readLineSync()!);
+  print("What is the name of the student");
+  name = stdin.readLineSync();
+  print("day of birth");
+  x = int.parse(stdin.readLineSync()!);
+  birth.add(x);
+  print("month of birth");
+  x = int.parse(stdin.readLineSync()!);
+  birth.add(x);
+  print("year of birth");
+  x = int.parse(stdin.readLineSync()!);
+  birth.add(x);
+
+  Students_data SD = Students_data(id, birth, name!);
+  SD.data();
+}
