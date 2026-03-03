@@ -1,0 +1,70 @@
+import 'dart:io';
+
+class Animal {
+  late String name;
+  late int age;
+  late String Fmeal;
+
+  Animal(this.Fmeal, this.age, this.name);
+  void animalData() {
+    print("animal make sound");
+  }
+}
+
+class Dog extends Animal {
+  Dog(String name, int age, String Fmeal) : super(name, age, Fmeal);
+
+  void animalData() {
+    print(
+      "Dog say woof \nHis name is $name and he is $age old his favorite meal is $Fmeal",
+    );
+  }
+}
+
+class Cat extends Animal {
+  Cat(String name, int age, String Fmeal) : super(name, age, Fmeal);
+
+  void animalData() {
+    print(
+      "Cat say meow \nHis name is $name and he is $age old his favorite meal is $Fmeal",
+    );
+  }
+}
+
+late int age;
+String? name;
+String? Fmeal;
+String? animal;
+
+void main() {
+  print("what is the type of the animal");
+  animal = stdin.readLineSync();
+  print("What is his name");
+  name = stdin.readLineSync();
+  print("how old is the animal");
+  age = int.parse(stdin.readLineSync()!);
+  print("What is his favorite meal");
+  Fmeal = stdin.readLineSync();
+
+  if (animal == "DOG" ||
+      animal == "dog" ||
+      animal == "Dog" ||
+      animal == "dOg" ||
+      animal == "doG" ||
+      animal == "DOg" ||
+      animal == "dOG") {
+    Dog dog = Dog(name!, age, Fmeal!);
+    dog.animalData();
+  } else if (animal == "CAT" ||
+      animal == "cat" ||
+      animal == "Cat" ||
+      animal == "cAt" ||
+      animal == "caT" ||
+      animal == "CAt" ||
+      animal == "cAT") {
+    Cat cat = Cat(name!, age, Fmeal!);
+    cat.animalData();
+  } else {
+    print("wrong animal");
+  }
+}
